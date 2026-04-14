@@ -29,7 +29,7 @@ export const faq: FaqItem[] = [
   {
     question: "Quais tecnologias vocês usam?",
     answer:
-      "Selecionamos a stack mais adequada ao seu caso. Usamos principalmente TypeScript, React/Next.js, Node.js, Flutter, PostgreSQL e AWS.",
+      "Selecionamos a stack mais adequada ao seu caso. Usamos principalmente TypeScript, React/Next.js, Node.js, PHP/Laravel, Flutter, MySQL, PostgreSQL e AWS.",
   },
   {
     question: "Como vocês usam IA no desenvolvimento?",

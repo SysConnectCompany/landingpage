@@ -89,10 +89,12 @@ export function Hero() {
 
       <div className="relative border-t border-white/10">
         <div className="mx-auto w-full max-w-[1240px] px-6 py-5 md:px-10">
-          <div className="mono grid grid-cols-2 gap-3 text-[11px] uppercase tracking-[0.18em] text-[var(--brand-muted-on-dark)] md:grid-cols-4">
+          <div className="mono grid grid-cols-2 gap-3 text-[11px] uppercase tracking-[0.18em] text-[var(--brand-muted-on-dark)] md:grid-cols-6">
             <span>· TypeScript</span>
             <span>· React / Next</span>
             <span>· Node / Go</span>
+            <span>· PHP / Laravel</span>
+            <span>· MySQL · PostgreSQL</span>
             <span>· Flutter · AWS</span>
           </div>
         </div>
