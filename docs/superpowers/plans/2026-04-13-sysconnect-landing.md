@@ -1,6 +1,6 @@
 # Sys Connect Landing Page — Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** Entregar landing page estática de captação de leads para a Sys Connect em Next.js 15, com formulário de agendamento, FAB WhatsApp e estética corporate clean.
 
@@ -67,7 +67,7 @@
 - Create: tudo via `create-next-app`
 - Working dir: `/home/juliocastro/Documentos/sysconnect`
 
-- [ ] **Step 1: Inicializar o git no diretório**
+- [x] **Step 1: Inicializar o git no diretório**
 
 ```bash
 cd /home/juliocastro/Documentos/sysconnect
@@ -76,7 +76,7 @@ git config user.email "dev@sysconnect.local"
 git config user.name "Sys Connect Dev"
 ```
 
-- [ ] **Step 2: Criar projeto Next.js 15**
+- [x] **Step 2: Criar projeto Next.js 15**
 
 ```bash
 cd /home/juliocastro/Documentos/sysconnect
@@ -88,7 +88,7 @@ npx --yes create-next-app@15 . \
 
 Expected: gera `package.json`, `app/`, `tsconfig.json`, `next.config.ts`, `postcss.config.mjs`, `app/globals.css`.
 
-- [ ] **Step 3: Verificar build inicial**
+- [x] **Step 3: Verificar build inicial**
 
 ```bash
 cd /home/juliocastro/Documentos/sysconnect && npm run build
@@ -96,7 +96,7 @@ cd /home/juliocastro/Documentos/sysconnect && npm run build
 
 Expected: build com sucesso.
 
-- [ ] **Step 4: Commit inicial**
+- [x] **Step 4: Commit inicial**
 
 ```bash
 git add -A
@@ -111,7 +111,7 @@ git commit -m "chore: scaffold Next.js 15 project"
 - Create: `lib/utils.ts`
 - Modify: `package.json`
 
-- [ ] **Step 1: Instalar dependências**
+- [x] **Step 1: Instalar dependências**
 
 ```bash
 cd /home/juliocastro/Documentos/sysconnect
@@ -122,7 +122,7 @@ npm install framer-motion lucide-react clsx tailwind-merge \
   resend
 ```
 
-- [ ] **Step 2: Criar `lib/utils.ts`**
+- [x] **Step 2: Criar `lib/utils.ts`**
 
 ```ts
 import { clsx, type ClassValue } from "clsx";
@@ -133,7 +133,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 ```
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add -A && git commit -m "chore: add runtime dependencies and cn helper"
@@ -147,7 +147,7 @@ git add -A && git commit -m "chore: add runtime dependencies and cn helper"
 - Modify: `app/globals.css`
 - Modify: `app/layout.tsx`
 
-- [ ] **Step 1: Substituir `app/globals.css`**
+- [x] **Step 1: Substituir `app/globals.css`**
 
 ```css
 @import "tailwindcss";
@@ -193,7 +193,7 @@ h1, h2, h3, h4 {
 }
 ```
 
-- [ ] **Step 2: Configurar fonts em `app/layout.tsx`**
+- [x] **Step 2: Configurar fonts em `app/layout.tsx`**
 
 ```tsx
 import type { Metadata } from "next";
@@ -253,7 +253,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 }
 ```
 
-- [ ] **Step 3: Rodar build**
+- [x] **Step 3: Rodar build**
 
 ```bash
 cd /home/juliocastro/Documentos/sysconnect && npm run build
@@ -261,7 +261,7 @@ cd /home/juliocastro/Documentos/sysconnect && npm run build
 
 Expected: build passa.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add -A && git commit -m "feat: add design tokens and typography"
@@ -274,7 +274,7 @@ git add -A && git commit -m "feat: add design tokens and typography"
 **Files:**
 - Create: `content/site.ts`, `content/services.ts`, `content/why-us.ts`, `content/process.ts`, `content/faq.ts`, `content/stack.ts`
 
-- [ ] **Step 1: `content/site.ts`**
+- [x] **Step 1: `content/site.ts`**
 
 ```ts
 export const site = {
@@ -299,7 +299,7 @@ export const site = {
 } as const;
 ```
 
-- [ ] **Step 2: `content/services.ts`**
+- [x] **Step 2: `content/services.ts`**
 
 ```ts
 import { Code2, Smartphone, Plug, Users } from "lucide-react";
@@ -339,7 +339,7 @@ export const services: Service[] = [
 ];
 ```
 
-- [ ] **Step 3: `content/why-us.ts`**
+- [x] **Step 3: `content/why-us.ts`**
 
 ```ts
 import { ShieldCheck, Rocket, Layers, HandshakeIcon } from "lucide-react";
@@ -371,7 +371,7 @@ export const pillars: Pillar[] = [
 ];
 ```
 
-- [ ] **Step 4: `content/process.ts`**
+- [x] **Step 4: `content/process.ts`**
 
 ```ts
 export type ProcessStep = { number: string; title: string; description: string };
@@ -384,7 +384,7 @@ export const processSteps: ProcessStep[] = [
 ];
 ```
 
-- [ ] **Step 5: `content/faq.ts`**
+- [x] **Step 5: `content/faq.ts`**
 
 ```ts
 export type FaqItem = { question: string; answer: string };
@@ -423,7 +423,7 @@ export const faq: FaqItem[] = [
 ];
 ```
 
-- [ ] **Step 6: `content/stack.ts`**
+- [x] **Step 6: `content/stack.ts`**
 
 ```ts
 export const techStack = [
@@ -440,7 +440,7 @@ export const techStack = [
 ];
 ```
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 ```bash
 git add -A && git commit -m "feat: add typed content modules"
@@ -453,7 +453,7 @@ git add -A && git commit -m "feat: add typed content modules"
 **Files:**
 - Create: `components/ui/button.tsx`, `input.tsx`, `textarea.tsx`, `select.tsx`, `accordion.tsx`, `checkbox.tsx`, `label.tsx`
 
-- [ ] **Step 1: Inicializar shadcn**
+- [x] **Step 1: Inicializar shadcn**
 
 ```bash
 cd /home/juliocastro/Documentos/sysconnect
@@ -462,7 +462,7 @@ npx --yes shadcn@latest init -d -y
 
 Expected: cria `components.json` e `lib/utils.ts` (se ainda não existe).
 
-- [ ] **Step 2: Adicionar componentes**
+- [x] **Step 2: Adicionar componentes**
 
 ```bash
 npx --yes shadcn@latest add button input textarea select accordion checkbox label -y
@@ -470,7 +470,7 @@ npx --yes shadcn@latest add button input textarea select accordion checkbox labe
 
 Expected: cria arquivos em `components/ui/`.
 
-- [ ] **Step 3: Verificar build**
+- [x] **Step 3: Verificar build**
 
 ```bash
 npm run build
@@ -478,7 +478,7 @@ npm run build
 
 Expected: build passa.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add -A && git commit -m "feat: add shadcn/ui base components"
@@ -491,7 +491,7 @@ git add -A && git commit -m "feat: add shadcn/ui base components"
 **Files:**
 - Create: `components/layout/container.tsx`, `components/layout/section.tsx`, `components/motion/fade-in.tsx`
 
-- [ ] **Step 1: `components/layout/container.tsx`**
+- [x] **Step 1: `components/layout/container.tsx`**
 
 ```tsx
 import { cn } from "@/lib/utils";
@@ -511,7 +511,7 @@ export function Container({
 }
 ```
 
-- [ ] **Step 2: `components/layout/section.tsx`**
+- [x] **Step 2: `components/layout/section.tsx`**
 
 ```tsx
 import { cn } from "@/lib/utils";
@@ -545,7 +545,7 @@ export function Section({
 }
 ```
 
-- [ ] **Step 3: `components/motion/fade-in.tsx`**
+- [x] **Step 3: `components/motion/fade-in.tsx`**
 
 ```tsx
 "use client";
@@ -576,7 +576,7 @@ export function FadeIn({
 }
 ```
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add -A && git commit -m "feat: add layout primitives and motion wrapper"
@@ -589,7 +589,7 @@ git add -A && git commit -m "feat: add layout primitives and motion wrapper"
 **Files:**
 - Create: `components/layout/header.tsx`
 
-- [ ] **Step 1: Criar o componente**
+- [x] **Step 1: Criar o componente**
 
 ```tsx
 "use client";
@@ -679,7 +679,7 @@ export function Header() {
 }
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add -A && git commit -m "feat: add fixed header with nav and mobile drawer"
@@ -692,7 +692,7 @@ git add -A && git commit -m "feat: add fixed header with nav and mobile drawer"
 **Files:**
 - Create: `components/layout/whatsapp-fab.tsx`
 
-- [ ] **Step 1: Criar componente**
+- [x] **Step 1: Criar componente**
 
 ```tsx
 import Link from "next/link";
@@ -716,7 +716,7 @@ export function WhatsAppFab() {
 }
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add -A && git commit -m "feat: add WhatsApp floating button"
@@ -729,7 +729,7 @@ git add -A && git commit -m "feat: add WhatsApp floating button"
 **Files:**
 - Create: `components/sections/hero.tsx`
 
-- [ ] **Step 1: Criar componente**
+- [x] **Step 1: Criar componente**
 
 ```tsx
 import Link from "next/link";
@@ -789,7 +789,7 @@ export function Hero() {
 }
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add -A && git commit -m "feat: add hero section"
@@ -802,7 +802,7 @@ git add -A && git commit -m "feat: add hero section"
 **Files:**
 - Create: `components/sections/services.tsx`
 
-- [ ] **Step 1: Criar componente**
+- [x] **Step 1: Criar componente**
 
 ```tsx
 import { Section } from "@/components/layout/section";
@@ -841,7 +841,7 @@ export function Services() {
 }
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add -A && git commit -m "feat: add services section"
@@ -854,7 +854,7 @@ git add -A && git commit -m "feat: add services section"
 **Files:**
 - Create: `components/sections/why-us.tsx`
 
-- [ ] **Step 1: Criar componente**
+- [x] **Step 1: Criar componente**
 
 ```tsx
 import { Section } from "@/components/layout/section";
@@ -889,7 +889,7 @@ export function WhyUs() {
 }
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add -A && git commit -m "feat: add why-us section"
@@ -902,7 +902,7 @@ git add -A && git commit -m "feat: add why-us section"
 **Files:**
 - Create: `components/sections/process.tsx`
 
-- [ ] **Step 1: Criar componente**
+- [x] **Step 1: Criar componente**
 
 ```tsx
 import { Section } from "@/components/layout/section";
@@ -938,7 +938,7 @@ export function Process() {
 }
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add -A && git commit -m "feat: add process timeline section"
@@ -951,7 +951,7 @@ git add -A && git commit -m "feat: add process timeline section"
 **Files:**
 - Create: `components/sections/tech-stack.tsx`
 
-- [ ] **Step 1: Criar componente**
+- [x] **Step 1: Criar componente**
 
 ```tsx
 import { Section } from "@/components/layout/section";
@@ -981,7 +981,7 @@ export function TechStack() {
 }
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add -A && git commit -m "feat: add tech stack strip"
@@ -994,7 +994,7 @@ git add -A && git commit -m "feat: add tech stack strip"
 **Files:**
 - Create: `components/sections/cta-banner.tsx`
 
-- [ ] **Step 1: Criar componente**
+- [x] **Step 1: Criar componente**
 
 ```tsx
 import Link from "next/link";
@@ -1032,7 +1032,7 @@ export function CtaBanner() {
 }
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add -A && git commit -m "feat: add intermediate CTA banner"
@@ -1045,7 +1045,7 @@ git add -A && git commit -m "feat: add intermediate CTA banner"
 **Files:**
 - Create: `components/sections/faq.tsx`
 
-- [ ] **Step 1: Criar componente**
+- [x] **Step 1: Criar componente**
 
 ```tsx
 import { Section } from "@/components/layout/section";
@@ -1091,7 +1091,7 @@ export function Faq() {
 }
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add -A && git commit -m "feat: add FAQ section"
@@ -1104,7 +1104,7 @@ git add -A && git commit -m "feat: add FAQ section"
 **Files:**
 - Create: `lib/validators.ts`, `lib/send-contact.ts`, `.env.example`
 
-- [ ] **Step 1: `lib/validators.ts`**
+- [x] **Step 1: `lib/validators.ts`**
 
 ```ts
 import { z } from "zod";
@@ -1132,7 +1132,7 @@ export const contactSchema = z.object({
 export type ContactInput = z.infer<typeof contactSchema>;
 ```
 
-- [ ] **Step 2: `lib/send-contact.ts`**
+- [x] **Step 2: `lib/send-contact.ts`**
 
 ```ts
 import { Resend } from "resend";
@@ -1180,7 +1180,7 @@ ${data.message}
 }
 ```
 
-- [ ] **Step 3: `.env.example`**
+- [x] **Step 3: `.env.example`**
 
 ```
 NEXT_PUBLIC_SITE_URL=https://sysconnect.com.br
@@ -1190,7 +1190,7 @@ RESEND_API_KEY=
 CONTACT_WEBHOOK_URL=
 ```
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add -A && git commit -m "feat: add contact validators and send adapter"
@@ -1203,7 +1203,7 @@ git add -A && git commit -m "feat: add contact validators and send adapter"
 **Files:**
 - Create: `app/api/contact/route.ts`
 
-- [ ] **Step 1: Criar handler**
+- [x] **Step 1: Criar handler**
 
 ```ts
 import { NextResponse } from "next/server";
@@ -1239,7 +1239,7 @@ export async function POST(req: Request) {
 }
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add -A && git commit -m "feat: add contact API route"
@@ -1252,7 +1252,7 @@ git add -A && git commit -m "feat: add contact API route"
 **Files:**
 - Create: `components/sections/contact.tsx`
 
-- [ ] **Step 1: Criar componente**
+- [x] **Step 1: Criar componente**
 
 ```tsx
 "use client";
@@ -1443,7 +1443,7 @@ export function Contact() {
 }
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add -A && git commit -m "feat: add contact form section"
@@ -1456,7 +1456,7 @@ git add -A && git commit -m "feat: add contact form section"
 **Files:**
 - Create: `components/layout/footer.tsx`
 
-- [ ] **Step 1: Criar componente**
+- [x] **Step 1: Criar componente**
 
 ```tsx
 import Link from "next/link";
@@ -1523,7 +1523,7 @@ export function Footer() {
 }
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add -A && git commit -m "feat: add footer"
@@ -1537,7 +1537,7 @@ git add -A && git commit -m "feat: add footer"
 - Modify: `app/page.tsx`
 - Create: `app/sitemap.ts`, `app/robots.ts`, `public/og-image.svg`
 
-- [ ] **Step 1: Substituir `app/page.tsx`**
+- [x] **Step 1: Substituir `app/page.tsx`**
 
 ```tsx
 import { Header } from "@/components/layout/header";
@@ -1573,7 +1573,7 @@ export default function Page() {
 }
 ```
 
-- [ ] **Step 2: `app/sitemap.ts`**
+- [x] **Step 2: `app/sitemap.ts`**
 
 ```ts
 import type { MetadataRoute } from "next";
@@ -1584,7 +1584,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 }
 ```
 
-- [ ] **Step 3: `app/robots.ts`**
+- [x] **Step 3: `app/robots.ts`**
 
 ```ts
 import type { MetadataRoute } from "next";
@@ -1598,7 +1598,7 @@ export default function robots(): MetadataRoute.Robots {
 }
 ```
 
-- [ ] **Step 4: `public/og-image.svg`**
+- [x] **Step 4: `public/og-image.svg`**
 
 ```xml
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
@@ -1609,7 +1609,7 @@ export default function robots(): MetadataRoute.Robots {
 </svg>
 ```
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add -A && git commit -m "feat: compose landing page, sitemap, robots and OG image"
@@ -1622,7 +1622,7 @@ git add -A && git commit -m "feat: compose landing page, sitemap, robots and OG 
 **Files:**
 - Create: `README.md`
 
-- [ ] **Step 1: `README.md`**
+- [x] **Step 1: `README.md`**
 
 ```markdown
 # Sys Connect — Landing Page
@@ -1660,7 +1660,7 @@ npm run start
 Todo o copy vive em `content/*.ts`. Ajuste os arquivos para editar serviços, FAQ, processo, etc.
 ```
 
-- [ ] **Step 2: Rodar build final**
+- [x] **Step 2: Rodar build final**
 
 ```bash
 cd /home/juliocastro/Documentos/sysconnect && npm run build
@@ -1668,7 +1668,7 @@ cd /home/juliocastro/Documentos/sysconnect && npm run build
 
 Expected: build completa sem erros de tipo. Páginas estáticas geradas.
 
-- [ ] **Step 3: Rodar lint**
+- [x] **Step 3: Rodar lint**
 
 ```bash
 npm run lint
@@ -1676,7 +1676,7 @@ npm run lint
 
 Expected: sem erros.
 
-- [ ] **Step 4: Iniciar servidor local e verificar manualmente**
+- [x] **Step 4: Iniciar servidor local e verificar manualmente**
 
 ```bash
 npm run dev
@@ -1690,7 +1690,7 @@ Verificar no navegador:
 - Form exibe erros de validação; submissão retorna 500 amigável se envio não configurado
 - Nenhum erro no console
 
-- [ ] **Step 5: Commit final**
+- [x] **Step 5: Commit final**
 
 ```bash
 git add -A && git commit -m "docs: add README"
@@ -1702,11 +1702,11 @@ git add -A && git commit -m "docs: add README"
 
 Antes de considerar concluído:
 
-- [ ] `npm run build` passa sem erros
-- [ ] `npm run lint` passa
-- [ ] Todas as seções do spec implementadas: Header, Hero, Serviços, Por que, Processo, Tech Stack, CTA, FAQ, Contato, Footer, FAB WhatsApp
-- [ ] Formulário valida com Zod e responde com estados idle/submitting/success/error
-- [ ] Metadata, sitemap, robots e JSON-LD presentes
-- [ ] Responsivo em 375/768/1440px sem overflow
-- [ ] `prefers-reduced-motion` respeitado
-- [ ] Paleta e tipografia correspondem ao spec
+- [x] `npm run build` passa sem erros
+- [x] `npm run lint` passa
+- [x] Todas as seções do spec implementadas: Header, Hero, Serviços, Por que, Processo, Tech Stack, CTA, FAQ, Contato, Footer, FAB WhatsApp
+- [x] Formulário valida com Zod e responde com estados idle/submitting/success/error
+- [x] Metadata, sitemap, robots e JSON-LD presentes
+- [x] Responsivo em 375/768/1440px sem overflow
+- [x] `prefers-reduced-motion` respeitado
+- [x] Paleta e tipografia correspondem ao spec
