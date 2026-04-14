@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Space_Grotesk, Geist } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const inter = Inter({
   subsets: ["latin"],
@@ -42,7 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   };
 
   return (
-    <html lang="pt-BR" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="pt-BR" className={cn(inter.variable, spaceGrotesk.variable, "font-sans", geist.variable)}>
       <body>
         <script
           type="application/ld+json"
