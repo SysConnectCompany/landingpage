@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sys Connect — Landing Page
 
-## Getting Started
+Landing page institucional da Sys Connect, focada em captação de leads.
 
-First, run the development server:
+## Stack
+
+Next.js 15 · TypeScript · Tailwind v4 · shadcn/ui · Framer Motion · Resend
+
+## Desenvolvimento
 
 ```bash
+npm install
+cp .env.example .env.local   # configure as variáveis
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Variáveis de ambiente
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Veja `.env.example`. Para envio de email, configure `RESEND_API_KEY` e `CONTACT_EMAIL_TO`.
+Alternativamente, use `CONTACT_WEBHOOK_URL` para enviar para qualquer webhook (ex.: Zapier, Make).
 
-## Learn More
+## Build
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+npm run start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Edição de conteúdo
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Todo o copy vive em `content/*.ts`. Ajuste os arquivos para editar serviços, FAQ, processo, etc.
