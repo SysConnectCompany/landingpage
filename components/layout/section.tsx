@@ -19,7 +19,7 @@ export function Section({
       id={id}
       className={cn(
         "py-20 md:py-28",
-        alt && "bg-[var(--color-bg-alt)]",
+        alt && "bg-[var(--brand-cream)]",
         className,
       )}
     >

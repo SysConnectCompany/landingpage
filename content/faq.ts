@@ -31,4 +31,9 @@ export const faq: FaqItem[] = [
     answer:
       "Selecionamos a stack mais adequada ao seu caso. Usamos principalmente TypeScript, React/Next.js, Node.js, Flutter, PostgreSQL e AWS.",
   },
+  {
+    question: "Como vocês usam IA no desenvolvimento?",
+    answer:
+      "A IA entra como ferramenta do time, não como substituta do engenheiro. Usamos assistentes de código para acelerar a escrita e revisão, geração automática de testes para aumentar cobertura e LLMs para documentação e análise de requisitos. O resultado são ciclos mais curtos e um padrão de qualidade mais consistente — mas toda decisão de arquitetura e entrega continua sob responsabilidade do nosso time.",
+  },
 ];

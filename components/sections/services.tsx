@@ -1,33 +1,54 @@
 import { Section } from "@/components/layout/section";
-import { FadeIn } from "@/components/motion/fade-in";
 import { services } from "@/content/services";
 
 export function Services() {
   return (
-    <Section id="servicos" alt>
-      <FadeIn className="max-w-2xl">
-        <p className="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)]">
-          Serviços
-        </p>
-        <h2 className="mt-3 text-3xl md:text-4xl">O que fazemos pela sua operação</h2>
-        <p className="mt-4 text-[var(--color-muted)]">
-          Atuamos de ponta a ponta — do discovery à sustentação — com foco em entregar software
-          que gera resultado de negócio.
-        </p>
-      </FadeIn>
+    <Section id="servicos" className="relative py-28 md:py-36">
+      <div className="grid gap-10 lg:grid-cols-12">
+        <div className="lg:col-span-4">
+          <div className="mono text-[11px] uppercase tracking-[0.22em] text-[var(--brand-muted)]">
+            §01 · Serviços
+          </div>
+          <h2 className="display mt-5 text-5xl md:text-6xl">
+            O que a<br />
+            <span className="display-italic">Sys Connect</span>
+            <br />
+            faz por você.
+          </h2>
+          <p className="mt-6 max-w-sm text-[15px] leading-relaxed text-[var(--brand-muted)]">
+            Quatro frentes de trabalho, um time integrado. Você contrata por projeto, por squad ou por
+            demanda — e mantém propriedade total do código.
+          </p>
+        </div>
 
-      <div className="mt-12 grid gap-6 md:grid-cols-2">
-        {services.map((svc, i) => (
-          <FadeIn key={svc.title} delay={i * 0.05}>
-            <div className="group h-full rounded-2xl border border-[var(--color-border)] bg-white p-8 transition hover:border-[var(--color-accent)] hover:shadow-lg">
-              <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-accent)]/10 text-[var(--color-accent)]">
-                <svc.icon size={24} />
-              </div>
-              <h3 className="text-xl">{svc.title}</h3>
-              <p className="mt-3 text-[var(--color-muted)]">{svc.description}</p>
-            </div>
-          </FadeIn>
-        ))}
+        <div className="lg:col-span-8">
+          <ul className="divide-y divide-[var(--brand-border-soft)] border-y border-[var(--brand-border-soft)]">
+            {services.map((svc, i) => (
+              <li key={svc.title} className="group relative">
+                <div className="grid grid-cols-[64px_1fr_auto] items-start gap-6 py-8 transition md:py-10">
+                  <span className="mono pt-1 text-[11px] uppercase tracking-[0.22em] text-[var(--brand-muted)]">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3 className="display text-3xl md:text-4xl">
+                      {svc.title}
+                    </h3>
+                    <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-[var(--brand-muted)]">
+                      {svc.description}
+                    </p>
+                  </div>
+                  <span className="mt-2 inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--brand-border-soft)] text-[var(--brand-ink)] transition group-hover:border-[var(--brand-accent)] group-hover:bg-[var(--brand-accent)] group-hover:text-white">
+                    <svc.icon size={18} />
+                  </span>
+                </div>
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-[var(--brand-accent)] transition-transform duration-500 group-hover:scale-x-100"
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </Section>
   );

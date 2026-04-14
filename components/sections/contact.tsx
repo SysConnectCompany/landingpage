@@ -2,25 +2,17 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Mail, Phone, CheckCircle2, AlertCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Section } from "@/components/layout/section";
-import { FadeIn } from "@/components/motion/fade-in";
+import { Mail, Phone, CheckCircle2, AlertCircle, ArrowUpRight } from "lucide-react";
 import { contactSchema, projectTypes, type ContactInput } from "@/lib/validators";
 import { site } from "@/content/site";
 
 type Status = "idle" | "submitting" | "success" | "error";
+
+const inputClass =
+  "w-full border-0 border-b border-white/20 bg-transparent px-0 py-3 text-[15px] text-[var(--brand-paper)] placeholder:text-white/35 focus:border-[var(--brand-spark)] focus:outline-none";
+
+const labelClass =
+  "mono block text-[10px] uppercase tracking-[0.22em] text-[var(--brand-muted-on-dark)]";
 
 export function Contact() {
   const [status, setStatus] = useState<Status>("idle");
@@ -62,125 +54,164 @@ export function Contact() {
   };
 
   return (
-    <Section id="contato">
-      <div className="grid gap-12 lg:grid-cols-2">
-        <FadeIn>
-          <p className="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)]">
-            Contato
-          </p>
-          <h2 className="mt-3 text-3xl md:text-4xl">Vamos conversar sobre seu projeto</h2>
-          <p className="mt-4 text-[var(--color-muted)]">
-            Preencha o formulário e nossa equipe retorna em até 1 dia útil. Ou fale direto pelo WhatsApp.
-          </p>
-          <div className="mt-8 space-y-3 text-sm">
-            <div className="flex items-center gap-3">
-              <Mail size={18} className="text-[var(--color-accent)]" />
-              <a href={`mailto:${site.email}`} className="text-[var(--color-text)]">
-                {site.email}
-              </a>
+    <section id="contato" className="relative overflow-hidden bg-[var(--brand-ink)] py-28 text-[var(--brand-paper)] md:py-36">
+      <div aria-hidden className="pointer-events-none absolute inset-0 grid-dots opacity-60" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(50% 50% at 80% 20%, rgba(43,108,255,0.2), transparent 60%)",
+        }}
+      />
+
+      <div className="relative mx-auto w-full max-w-[1240px] px-6 md:px-10">
+        <div className="grid gap-16 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <div className="mono text-[11px] uppercase tracking-[0.22em] text-[var(--brand-muted-on-dark)]">
+              §06 · Contato
             </div>
-            <div className="flex items-center gap-3">
-              <Phone size={18} className="text-[var(--color-accent)]" />
-              <span>{site.phone}</span>
+            <h2 className="display mt-5 text-5xl md:text-6xl">
+              Fale com<br />
+              <span className="display-italic">a gente.</span>
+            </h2>
+            <p className="mt-6 max-w-sm text-[15px] leading-relaxed text-[var(--brand-muted-on-dark)]">
+              Preencha o formulário ou mande uma mensagem direta. Respondemos em até 1 dia útil.
+            </p>
+
+            <div className="mt-10 space-y-4 text-sm">
+              <a href={`mailto:${site.email}`} className="group flex items-center gap-3 text-[var(--brand-paper)]">
+                <Mail size={16} className="text-[var(--brand-accent-hot)]" />
+                <span className="link-reveal">{site.email}</span>
+                <ArrowUpRight size={14} className="opacity-0 transition group-hover:opacity-100" />
+              </a>
+              <div className="flex items-center gap-3 text-[var(--brand-paper)]">
+                <Phone size={16} className="text-[var(--brand-accent-hot)]" />
+                <span>{site.phone}</span>
+              </div>
             </div>
           </div>
-        </FadeIn>
 
-        <FadeIn delay={0.1}>
-          {status === "success" ? (
-            <div className="flex flex-col items-start gap-4 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-alt)] p-8">
-              <CheckCircle2 size={32} className="text-green-600" />
-              <h3 className="text-xl">Mensagem enviada!</h3>
-              <p className="text-[var(--color-muted)]">
-                Recebemos seu contato. Nossa equipe retorna em até 1 dia útil.
-              </p>
-              <Button variant="outline" onClick={() => setStatus("idle")}>
-                Enviar outra mensagem
-              </Button>
-            </div>
-          ) : (
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className="space-y-5 rounded-2xl border border-[var(--color-border)] bg-white p-6 md:p-8"
-              noValidate
-            >
-              <div className="grid gap-5 md:grid-cols-2">
-                <div>
-                  <Label htmlFor="name">Nome*</Label>
-                  <Input id="name" {...register("name")} aria-invalid={!!errors.name} />
-                  {errors.name && <p className="mt-1 text-xs text-red-600">{errors.name.message}</p>}
-                </div>
-                <div>
-                  <Label htmlFor="email">Email*</Label>
-                  <Input id="email" type="email" {...register("email")} aria-invalid={!!errors.email} />
-                  {errors.email && <p className="mt-1 text-xs text-red-600">{errors.email.message}</p>}
-                </div>
-                <div>
-                  <Label htmlFor="company">Empresa</Label>
-                  <Input id="company" {...register("company")} />
-                </div>
-                <div>
-                  <Label htmlFor="phone">Telefone</Label>
-                  <Input id="phone" {...register("phone")} />
-                </div>
+          <div className="lg:col-span-7">
+            {status === "success" ? (
+              <div className="flex flex-col items-start gap-4 rounded-3xl border border-white/15 bg-white/[0.04] p-10 backdrop-blur-sm">
+                <CheckCircle2 size={36} className="text-[var(--brand-spark)]" />
+                <h3 className="display text-4xl">Mensagem recebida.</h3>
+                <p className="text-[var(--brand-muted-on-dark)]">
+                  Obrigado por escrever. Nossa equipe retorna em até 1 dia útil.
+                </p>
+                <button
+                  onClick={() => setStatus("idle")}
+                  className="mono mt-2 text-[11px] uppercase tracking-[0.22em] text-[var(--brand-spark)] underline-offset-4 hover:underline"
+                >
+                  ↳ Enviar outra
+                </button>
               </div>
+            ) : (
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-8" noValidate>
+                <div className="grid gap-8 md:grid-cols-2">
+                  <Field label="Nome*" error={errors.name?.message}>
+                    <input className={inputClass} placeholder="Seu nome" {...register("name")} />
+                  </Field>
+                  <Field label="Email*" error={errors.email?.message}>
+                    <input className={inputClass} placeholder="voce@empresa.com" type="email" {...register("email")} />
+                  </Field>
+                  <Field label="Empresa">
+                    <input className={inputClass} placeholder="Nome da empresa" {...register("company")} />
+                  </Field>
+                  <Field label="Telefone">
+                    <input className={inputClass} placeholder="(00) 00000-0000" {...register("phone")} />
+                  </Field>
+                </div>
 
-              <div>
-                <Label htmlFor="projectType">Tipo de projeto*</Label>
-                <Select onValueChange={(v) => setValue("projectType", v as ContactInput["projectType"], { shouldValidate: true })}>
-                  <SelectTrigger id="projectType" aria-invalid={!!errors.projectType}>
-                    <SelectValue placeholder="Selecione..." />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {projectTypes.map((t) => (
-                      <SelectItem key={t} value={t}>
-                        {t}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                {errors.projectType && (
-                  <p className="mt-1 text-xs text-red-600">{errors.projectType.message}</p>
+                <Field label="Tipo de projeto*" error={errors.projectType?.message}>
+                  <div className="flex flex-wrap gap-2 pt-3">
+                    {projectTypes.map((t) => {
+                      const selected = watch("projectType") === t;
+                      return (
+                        <button
+                          key={t}
+                          type="button"
+                          onClick={() => setValue("projectType", t, { shouldValidate: true })}
+                          className={`rounded-full border px-4 py-2 text-[13px] transition ${
+                            selected
+                              ? "border-[var(--brand-accent-hot)] bg-[var(--brand-accent-hot)] text-white"
+                              : "border-white/20 text-[var(--brand-paper)] hover:border-white/50"
+                          }`}
+                        >
+                          {t}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </Field>
+
+                <Field label="Mensagem*" error={errors.message?.message}>
+                  <textarea
+                    rows={4}
+                    className={`${inputClass} resize-none`}
+                    placeholder="Me conte brevemente o que você quer construir..."
+                    {...register("message")}
+                  />
+                </Field>
+
+                <label className="flex items-start gap-3 text-sm text-[var(--brand-muted-on-dark)]">
+                  <input
+                    type="checkbox"
+                    checked={!!consent}
+                    onChange={(e) =>
+                      setValue("consent", (e.target.checked ? true : (false as never)) as true, {
+                        shouldValidate: true,
+                      })
+                    }
+                    className="mt-1 h-4 w-4 accent-[var(--brand-accent-hot)]"
+                  />
+                  <span>
+                    Concordo com o tratamento dos meus dados para fins de contato, conforme a LGPD.
+                  </span>
+                </label>
+                {errors.consent && (
+                  <p className="text-xs text-[var(--brand-spark)]">{errors.consent.message}</p>
                 )}
-              </div>
 
-              <div>
-                <Label htmlFor="message">Mensagem*</Label>
-                <Textarea id="message" rows={5} {...register("message")} aria-invalid={!!errors.message} />
-                {errors.message && <p className="mt-1 text-xs text-red-600">{errors.message.message}</p>}
-              </div>
+                {status === "error" && (
+                  <div className="flex items-center gap-2 rounded-md border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-200">
+                    <AlertCircle size={16} />
+                    {errorMsg}
+                  </div>
+                )}
 
-              <div className="flex items-start gap-3">
-                <Checkbox
-                  id="consent"
-                  checked={!!consent}
-                  onCheckedChange={(v) => setValue("consent", v === true ? true : (false as never), { shouldValidate: true })}
-                />
-                <Label htmlFor="consent" className="text-sm font-normal text-[var(--color-muted)]">
-                  Concordo com o tratamento dos meus dados para fins de contato, conforme a LGPD.
-                </Label>
-              </div>
-              {errors.consent && <p className="text-xs text-red-600">{errors.consent.message}</p>}
-
-              {status === "error" && (
-                <div className="flex items-center gap-2 rounded-md bg-red-50 p-3 text-sm text-red-700">
-                  <AlertCircle size={16} />
-                  {errorMsg}
-                </div>
-              )}
-
-              <Button
-                type="submit"
-                size="lg"
-                disabled={status === "submitting"}
-                className="w-full bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)]"
-              >
-                {status === "submitting" ? "Enviando..." : "Enviar mensagem"}
-              </Button>
-            </form>
-          )}
-        </FadeIn>
+                <button
+                  type="submit"
+                  disabled={status === "submitting"}
+                  className="group inline-flex items-center gap-2 rounded-full bg-[var(--brand-paper)] px-7 py-4 text-sm font-medium text-[var(--brand-ink)] transition hover:bg-[var(--brand-spark)] disabled:opacity-60"
+                >
+                  {status === "submitting" ? "Enviando..." : "Enviar mensagem"}
+                  <ArrowUpRight size={16} className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
       </div>
-    </Section>
+    </section>
+  );
+}
+
+function Field({
+  label,
+  error,
+  children,
+}: {
+  label: string;
+  error?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div>
+      <span className={labelClass}>{label}</span>
+      <div className="mt-1">{children}</div>
+      {error && <p className="mono mt-2 text-[11px] text-[var(--brand-spark)]">↳ {error}</p>}
+    </div>
   );
 }

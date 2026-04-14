@@ -1,8 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { Container } from "./container";
 import { site } from "@/content/site";
 import { cn } from "@/lib/utils";
@@ -19,25 +18,33 @@ export function Header() {
   }, []);
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all",
-        scrolled
-          ? "bg-white/80 backdrop-blur-md border-b border-[var(--color-border)]"
-          : "bg-transparent",
-      )}
-    >
-      <Container className="flex h-16 items-center justify-between">
-        <Link href="/" className="font-display text-lg font-bold text-[var(--color-primary)]">
-          Sys<span className="text-[var(--color-accent)]">Connect</span>
+    <header className="fixed inset-x-0 top-0 z-50">
+      <Container
+        className={cn(
+          "mt-4 flex h-14 items-center justify-between rounded-full border px-5 transition-all",
+          scrolled
+            ? "border-[var(--brand-border-soft)] bg-[var(--brand-paper)]/85 shadow-[0_8px_30px_-12px_rgba(10,22,40,0.15)] backdrop-blur-lg"
+            : "border-transparent bg-transparent",
+        )}
+      >
+        <Link href="/" className="flex items-center gap-2">
+          <span className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[var(--brand-ink)] text-[10px] text-[var(--brand-paper)]">
+            <svg viewBox="0 0 16 16" fill="none" className="h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 4 L8 8 L3 12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M13 12 L8 8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
+          <span className="text-[15px] font-medium tracking-tight text-[var(--brand-ink)]">
+            Sys<span className="text-[var(--brand-muted)]">/</span>Connect
+          </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-7 md:flex">
           {site.nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm text-[var(--color-muted)] transition hover:text-[var(--color-primary)]"
+              className="text-[13px] text-[var(--brand-muted)] transition hover:text-[var(--brand-ink)]"
             >
               {item.label}
             </Link>
@@ -45,39 +52,45 @@ export function Header() {
         </nav>
 
         <div className="hidden md:block">
-          <Button asChild className="bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)]">
-            <Link href="#contato">Agendar reunião</Link>
-          </Button>
+          <Link
+            href="#contato"
+            className="group inline-flex items-center gap-1.5 rounded-full bg-[var(--brand-ink)] px-4 py-2 text-[13px] font-medium text-[var(--brand-paper)] transition hover:bg-[var(--brand-accent)]"
+          >
+            Agendar reunião
+            <ArrowUpRight size={14} className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
         </div>
 
         <button
           aria-label="Abrir menu"
-          className="md:hidden"
+          className="text-[var(--brand-ink)] md:hidden"
           onClick={() => setOpen((v) => !v)}
         >
-          {open ? <X size={24} /> : <Menu size={24} />}
+          {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </Container>
 
       {open && (
-        <div className="border-t border-[var(--color-border)] bg-white md:hidden">
-          <Container className="flex flex-col gap-4 py-6">
+        <div className="mx-4 mt-2 rounded-3xl border border-[var(--brand-border-soft)] bg-[var(--brand-paper)] p-6 shadow-lg md:hidden">
+          <div className="flex flex-col gap-5">
             {site.nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="text-base text-[var(--color-text)]"
+                className="text-base text-[var(--brand-ink)]"
               >
                 {item.label}
               </Link>
             ))}
-            <Button asChild className="bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)]">
-              <Link href="#contato" onClick={() => setOpen(false)}>
-                Agendar reunião
-              </Link>
-            </Button>
-          </Container>
+            <Link
+              href="#contato"
+              onClick={() => setOpen(false)}
+              className="mt-2 inline-flex items-center justify-center gap-1.5 rounded-full bg-[var(--brand-ink)] px-4 py-2.5 text-sm text-[var(--brand-paper)]"
+            >
+              Agendar reunião <ArrowUpRight size={14} />
+            </Link>
+          </div>
         </div>
       )}
     </header>

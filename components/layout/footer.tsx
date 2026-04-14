@@ -1,65 +1,69 @@
 import Link from "next/link";
-import { ExternalLink } from "lucide-react";
-import { Container } from "./container";
 import { site } from "@/content/site";
 
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-[var(--color-border)] bg-white py-16">
-      <Container>
-        <div className="grid gap-10 md:grid-cols-4">
-          <div>
-            <div className="font-display text-lg font-bold text-[var(--color-primary)]">
-              Sys<span className="text-[var(--color-accent)]">Connect</span>
+    <footer className="relative overflow-hidden bg-[var(--brand-ink-2)] text-[var(--brand-paper)]">
+      <div aria-hidden className="pointer-events-none absolute inset-0 grid-dots opacity-50" />
+
+      <div className="relative mx-auto w-full max-w-[1240px] px-6 pb-10 pt-20 md:px-10">
+        <div className="grid gap-12 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <div className="display text-6xl leading-[1] md:text-7xl">
+              Sys/<span className="display-italic text-[var(--brand-accent-hot)]">Connect</span>
             </div>
-            <p className="mt-3 text-sm text-[var(--color-muted)]">{site.description}</p>
+            <p className="mt-6 max-w-sm text-[15px] leading-relaxed text-[var(--brand-muted-on-dark)]">
+              {site.description}
+            </p>
           </div>
-          <div>
-            <h4 className="text-sm font-semibold">Navegação</h4>
-            <ul className="mt-3 space-y-2 text-sm text-[var(--color-muted)]">
+
+          <div className="md:col-span-3">
+            <h4 className="mono text-[10px] uppercase tracking-[0.22em] text-[var(--brand-muted-on-dark)]">
+              Navegação
+            </h4>
+            <ul className="mt-4 space-y-3 text-sm">
               {site.nav.map((n) => (
                 <li key={n.href}>
-                  <Link href={n.href} className="hover:text-[var(--color-primary)]">
+                  <Link href={n.href} className="link-reveal hover:text-[var(--brand-spark)]">
                     {n.label}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
-          <div>
-            <h4 className="text-sm font-semibold">Contato</h4>
-            <ul className="mt-3 space-y-2 text-sm text-[var(--color-muted)]">
+
+          <div className="md:col-span-4">
+            <h4 className="mono text-[10px] uppercase tracking-[0.22em] text-[var(--brand-muted-on-dark)]">
+              Contato
+            </h4>
+            <ul className="mt-4 space-y-3 text-sm">
               <li>
-                <a href={`mailto:${site.email}`}>{site.email}</a>
+                <a href={`mailto:${site.email}`} className="link-reveal">
+                  {site.email}
+                </a>
               </li>
               <li>{site.phone}</li>
+              <li className="flex gap-5 pt-3 text-[var(--brand-muted-on-dark)]">
+                <a href={site.social.linkedin} target="_blank" rel="noopener noreferrer" className="link-reveal hover:text-[var(--brand-paper)]">
+                  LinkedIn ↗
+                </a>
+                <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" className="link-reveal hover:text-[var(--brand-paper)]">
+                  Instagram ↗
+                </a>
+                <a href={site.social.github} target="_blank" rel="noopener noreferrer" className="link-reveal hover:text-[var(--brand-paper)]">
+                  GitHub ↗
+                </a>
+              </li>
             </ul>
-          </div>
-          <div>
-            <h4 className="text-sm font-semibold">Redes</h4>
-            <div className="mt-3 flex gap-3 text-[var(--color-muted)]">
-              <a href={site.social.linkedin} aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-primary)]">
-                <ExternalLink size={18} />
-                <span className="sr-only">LinkedIn</span>
-              </a>
-              <a href={site.social.instagram} aria-label="Instagram" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-primary)]">
-                <ExternalLink size={18} />
-                <span className="sr-only">Instagram</span>
-              </a>
-              <a href={site.social.github} aria-label="GitHub" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-primary)]">
-                <ExternalLink size={18} />
-                <span className="sr-only">GitHub</span>
-              </a>
-            </div>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-[var(--color-border)] pt-6 text-xs text-[var(--color-muted)] md:flex-row">
-          <p>© {year} Sys Connect. Todos os direitos reservados.</p>
-          <p>CNPJ: 00.000.000/0001-00</p>
+        <div className="mono mt-20 flex flex-col justify-between gap-3 border-t border-white/10 pt-6 text-[11px] uppercase tracking-[0.2em] text-[var(--brand-muted-on-dark)] md:flex-row">
+          <p>© {year} Sys/Connect · Todos os direitos reservados</p>
+          <p>CNPJ 00.000.000/0001-00</p>
         </div>
-      </Container>
+      </div>
     </footer>
   );
 }

@@ -1,4 +1,4 @@
-import { ShieldCheck, Rocket, Layers, HandshakeIcon } from "lucide-react";
+import { ShieldCheck, Rocket, BrainCircuit, HandshakeIcon } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export type Pillar = { icon: LucideIcon; title: string; description: string };
@@ -11,13 +11,13 @@ export const pillars: Pillar[] = [
   },
   {
     icon: Rocket,
-    title: "Entregas ágeis",
-    description: "Sprints curtas com demonstrações frequentes e ajustes rápidos de rota.",
+    title: "Velocidade sem atalhos",
+    description: "Usamos IA em todo o ciclo — da revisão de código à geração de testes — para entregar sprints mais curtas sem comprometer a arquitetura.",
   },
   {
-    icon: Layers,
-    title: "Stack moderna",
-    description: "Tecnologias atuais e escaláveis, escolhidas para o seu contexto, não por modismo.",
+    icon: BrainCircuit,
+    title: "IA integrada ao processo",
+    description: "Não usamos IA como enfeite. Ela está no fluxo de desenvolvimento: sugestão, revisão, documentação e automação de qualidade, lado a lado com o time.",
   },
   {
     icon: HandshakeIcon,
