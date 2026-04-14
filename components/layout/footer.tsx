@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Linkedin, Instagram, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { Container } from "./container";
 import { site } from "@/content/site";
 
@@ -39,14 +39,17 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-semibold">Redes</h4>
             <div className="mt-3 flex gap-3 text-[var(--color-muted)]">
-              <a href={site.social.linkedin} aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-                <Linkedin size={20} />
+              <a href={site.social.linkedin} aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-primary)]">
+                <ExternalLink size={18} />
+                <span className="sr-only">LinkedIn</span>
               </a>
-              <a href={site.social.instagram} aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-                <Instagram size={20} />
+              <a href={site.social.instagram} aria-label="Instagram" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-primary)]">
+                <ExternalLink size={18} />
+                <span className="sr-only">Instagram</span>
               </a>
-              <a href={site.social.github} aria-label="GitHub" target="_blank" rel="noopener noreferrer">
-                <Github size={20} />
+              <a href={site.social.github} aria-label="GitHub" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-primary)]">
+                <ExternalLink size={18} />
+                <span className="sr-only">GitHub</span>
               </a>
             </div>
           </div>
