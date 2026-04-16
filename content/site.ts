@@ -3,12 +3,12 @@ export const site = {
   tagline: "Desenvolvimento de software sob medida.",
   description:
     "Construímos sistemas, apps e integrações para empresas que não podem parar.",
-  email: "contato@sysconnect.com.br",
-  phone: "+55 (00) 00000-0000",
-  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "5500000000000",
+  email: "contato@sysconnectcompany.com.br",
+  phone: "+55 (32) 99862-2043",
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "5532998622043",
   social: {
-    linkedin: "https://linkedin.com/company/sysconnect",
-    instagram: "https://instagram.com/sysconnect",
+    linkedin: "https://linkedin.com/company/sysconnectcompany",
+    instagram: "https://instagram.com/sysconnectcompany",
     github: "https://github.com/sysconnect",
   },
   nav: [
