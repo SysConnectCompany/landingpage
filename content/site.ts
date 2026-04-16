@@ -7,7 +7,7 @@ export const site = {
   phone: "+55 (32) 99862-2043",
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "5532998622043",
   social: {
-    linkedin: "https://linkedin.com/company/sysconnectcompany",
+    linkedin: "https://www.linkedin.com/company/sys-connect-company",
     instagram: "https://instagram.com/sysconnectcompany",
     github: "https://github.com/sysconnect",
   },

@@ -20,7 +20,7 @@ ${data.message}
   if (apiKey && to) {
     const resend = new Resend(apiKey);
     await resend.emails.send({
-      from: "Sys Connect <contato@sysconnect.com.br>",
+      from: "Sys Connect <contato@sysconnectcompany.com.br>",
       to,
       replyTo: data.email,
       subject: `Novo contato: ${data.projectType} — ${data.name}`,
