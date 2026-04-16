@@ -51,9 +51,6 @@ export function Footer() {
                 <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" className="link-reveal hover:text-[var(--brand-paper)]">
                   Instagram ↗
                 </a>
-                <a href={site.social.github} target="_blank" rel="noopener noreferrer" className="link-reveal hover:text-[var(--brand-paper)]">
-                  GitHub ↗
-                </a>
               </li>
             </ul>
           </div>
