@@ -61,7 +61,7 @@ export function Footer() {
 
         <div className="mono mt-20 flex flex-col justify-between gap-3 border-t border-white/10 pt-6 text-[11px] uppercase tracking-[0.2em] text-[var(--brand-muted-on-dark)] md:flex-row">
           <p>© {year} Sys/Connect · Todos os direitos reservados</p>
-          <p>CNPJ 00.000.000/0001-00</p>
+          <p>CNPJ 65.951.698/0001-76</p>
         </div>
       </div>
     </footer>

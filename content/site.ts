@@ -9,7 +9,7 @@ export const site = {
   social: {
     linkedin: "https://www.linkedin.com/company/sys-connect-company",
     instagram: "https://instagram.com/sysconnectcompany",
-    github: "https://github.com/sysconnect",
+    github: "https://github.com/SysConnectCompany",
   },
   nav: [
     { label: "Serviços", href: "#servicos" },
