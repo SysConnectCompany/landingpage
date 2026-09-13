@@ -5,6 +5,7 @@ import { Hero } from "@/components/sections/hero";
 import { Services } from "@/components/sections/services";
 import { WhyUs } from "@/components/sections/why-us";
 import { Process } from "@/components/sections/process";
+import { Founder } from "@/components/sections/founder";
 import { TechStack } from "@/components/sections/tech-stack";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import { Faq } from "@/components/sections/faq";
@@ -19,6 +20,7 @@ export default function Page() {
         <Services />
         <WhyUs />
         <Process />
+        <Founder />
         <TechStack />
         <CtaBanner />
         <Faq />

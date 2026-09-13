@@ -1,0 +1,13 @@
+<svg width="1200" height="1500" viewBox="0 0 1200 1500" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Espaço reservado para retrato de Julio Castro</title>
+  <desc id="desc">Placeholder editorial local para uma fotografia profissional do fundador da Sys Connect</desc>
+  <rect width="1200" height="1500" fill="#0A1628"/>
+  <rect x="56" y="56" width="1088" height="1388" stroke="#9AA6BA" stroke-opacity="0.28"/>
+  <circle cx="844" cy="360" r="408" fill="#2B6CFF" fill-opacity="0.18"/>
+  <circle cx="222" cy="1310" r="338" fill="#FFD447" fill-opacity="0.07"/>
+  <path d="M92 1108C358 888 653 853 1108 1060V1436H92V1108Z" fill="#0F1E35"/>
+  <path d="M92 1108C358 888 653 853 1108 1060" stroke="#9AA6BA" stroke-opacity="0.25"/>
+  <text x="112" y="1084" fill="#FBFAF6" font-family="Arial, sans-serif" font-size="164" font-weight="500" letter-spacing="-12">JC</text>
+  <text x="118" y="1294" fill="#9AA6BA" font-family="Arial, sans-serif" font-size="28" letter-spacing="7">RETRATO DO FUNDADOR</text>
+  <text x="118" y="1348" fill="#9AA6BA" font-family="Arial, sans-serif" font-size="28" letter-spacing="7">SUBSTITUIR POR FOTO PROFISSIONAL</text>
+</svg>

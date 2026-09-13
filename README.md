@@ -31,3 +31,9 @@ npm run start
 ## Edição de conteúdo
 
 Todo o copy vive em `content/*.ts`. Ajuste os arquivos para editar serviços, FAQ, processo, etc.
+
+### Seção do fundador
+
+- Defina `NEXT_PUBLIC_FOUNDER_LINKEDIN_URL` em `.env.local` com o perfil público de Julio Castro. Sem essa variável, o site mantém um endereço identificável para preenchimento em `content/site.ts`.
+- O retrato profissional fica em `public/images/julio-castro-founder.jpg`. Para substituí-lo no futuro, mantenha o caminho configurado em `content/site.ts` (`site.founder.image`).
+- Quando a página Sobre existir, altere `site.founder.storyHref` em `content/site.ts` de `#fundador` para a rota final, por exemplo `/sobre`.
