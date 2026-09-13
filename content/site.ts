@@ -15,9 +15,9 @@ export const site = {
     role: "Founder & Software Engineer",
     company: "Sys Connect Company",
     image: "/images/julio-castro-founder.jpg",
-    // TODO: substitua pelo perfil público do Julio antes de publicar.
     linkedin:
-      process.env.NEXT_PUBLIC_FOUNDER_LINKEDIN_URL ?? "https://www.linkedin.com/in/seu-perfil",
+      process.env.NEXT_PUBLIC_FOUNDER_LINKEDIN_URL ??
+      "https://www.linkedin.com/in/juliocastro-eng/",
     // TODO: altere para a rota da página Sobre quando ela existir, por exemplo: "/sobre".
     storyHref: "#fundador",
   },

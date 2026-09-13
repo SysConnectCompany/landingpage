@@ -34,6 +34,6 @@ Todo o copy vive em `content/*.ts`. Ajuste os arquivos para editar serviços, FA
 
 ### Seção do fundador
 
-- Defina `NEXT_PUBLIC_FOUNDER_LINKEDIN_URL` em `.env.local` com o perfil público de Julio Castro. Sem essa variável, o site mantém um endereço identificável para preenchimento em `content/site.ts`.
+- O perfil padrão é `https://www.linkedin.com/in/juliocastro-eng/`, definido em `content/site.ts`. Use `NEXT_PUBLIC_FOUNDER_LINKEDIN_URL` em `.env.local` para sobrescrevê-lo.
 - O retrato profissional fica em `public/images/julio-castro-founder.jpg`. Para substituí-lo no futuro, mantenha o caminho configurado em `content/site.ts` (`site.founder.image`).
 - Quando a página Sobre existir, altere `site.founder.storyHref` em `content/site.ts` de `#fundador` para a rota final, por exemplo `/sobre`.
