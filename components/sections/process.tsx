@@ -1,50 +1,31 @@
-import { Section } from "@/components/layout/section";
+import { Section, SectionHeading } from "@/components/layout/section";
 import { processSteps } from "@/content/process";
+import { sections } from "@/content/sections";
 
 export function Process() {
-  return (
-    <Section id="processo" className="relative py-28 md:py-36">
-      <div className="grid gap-12 lg:grid-cols-12">
-        <div className="lg:col-span-4">
-          <div className="mono text-[11px] uppercase tracking-[0.22em] text-[var(--brand-muted)]">
-            §03 · Processo
-          </div>
-          <h2 className="display mt-5 text-5xl md:text-6xl">
-            Do briefing<br />
-            <span className="display-italic">à evolução</span><br />
-            contínua.
-          </h2>
-          <p className="mt-6 max-w-sm text-[15px] leading-relaxed text-[var(--brand-muted)]">
-            Quatro etapas claras, sem surpresas. Você vê o projeto andar em ciclos curtos, com demos
-            frequentes e ajustes rápidos.
-          </p>
-        </div>
+  const copy = sections.process;
 
-        <ol className="relative lg:col-span-8">
-          <span
-            aria-hidden
-            className="pointer-events-none absolute left-[11px] top-2 bottom-2 w-px bg-gradient-to-b from-[var(--brand-ink)] via-[var(--brand-border-soft)] to-transparent"
-          />
-          {processSteps.map((step) => (
-            <li key={step.number} className="relative grid grid-cols-[48px_1fr] gap-6 py-8 first:pt-0 last:pb-0">
-              <div className="relative flex items-start justify-center">
-                <span className="relative z-10 inline-flex h-6 w-6 items-center justify-center rounded-full border border-[var(--brand-ink)] bg-[var(--brand-paper)]">
-                  <span className="inline-block h-2 w-2 rounded-full bg-[var(--brand-ink)]" />
-                </span>
-              </div>
-              <div>
-                <div className="mono text-[11px] uppercase tracking-[0.22em] text-[var(--brand-muted)]">
-                  Etapa {step.number}
-                </div>
-                <h3 className="display mt-2 text-3xl md:text-4xl">{step.title}</h3>
-                <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-[var(--brand-muted)]">
-                  {step.description}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </div>
+  return (
+    <Section id="processo">
+      <SectionHeading eyebrow={copy.eyebrow} title={copy.title} description={copy.description} />
+
+      <ol className="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+        {processSteps.map((step, i) => (
+          <li key={step.number} className="relative">
+            {i < processSteps.length - 1 && (
+              <span
+                aria-hidden
+                className="absolute left-12 right-0 top-5 hidden h-px bg-[var(--brand-border)] lg:block"
+              />
+            )}
+            <span className="relative inline-flex h-10 w-10 items-center justify-center rounded-full bg-[var(--brand-primary)] text-sm font-semibold text-white">
+              {step.number}
+            </span>
+            <h3 className="mt-5 text-lg font-semibold text-[var(--brand-ink)]">{step.title}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-[var(--brand-muted)]">{step.description}</p>
+          </li>
+        ))}
+      </ol>
     </Section>
   );
 }

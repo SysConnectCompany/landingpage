@@ -1,19 +1,23 @@
+import { Section, SectionHeading } from "@/components/layout/section";
 import { techStack } from "@/content/stack";
+import { sections } from "@/content/sections";
 
 export function TechStack() {
-  const items = [...techStack, ...techStack];
+  const copy = sections.stack;
+
   return (
-    <section className="relative overflow-hidden border-y border-[var(--brand-border-soft)] bg-[var(--brand-cream-2)] py-8">
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-[var(--brand-cream-2)] to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-[var(--brand-cream-2)] to-transparent" />
-      <div className="marquee-track flex w-max items-center gap-12 whitespace-nowrap">
-        {items.map((t, i) => (
-          <div key={`${t}-${i}`} className="flex items-center gap-12">
-            <span className="display text-3xl text-[var(--brand-ink)] md:text-4xl">{t}</span>
-            <span className="mono text-[var(--brand-accent)]">✦</span>
-          </div>
+    <Section className="border-t border-[var(--brand-border)] py-16 md:py-20">
+      <SectionHeading eyebrow={copy.eyebrow} title={copy.title} align="center" />
+      <ul className="mx-auto mt-10 flex max-w-4xl flex-wrap justify-center gap-3">
+        {techStack.map((t) => (
+          <li
+            key={t}
+            className="rounded-md border border-[var(--brand-border)] bg-white px-4 py-2 text-sm font-medium text-[var(--brand-ink)]"
+          >
+            {t}
+          </li>
         ))}
-      </div>
-    </section>
+      </ul>
+    </Section>
   );
 }

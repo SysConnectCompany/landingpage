@@ -27,11 +27,13 @@ The contact API route (`app/api/contact/route.ts`) tries Resend first, then the 
 
 Single-page marketing/lead-capture site built with Next.js 15 App Router.
 
-**Content layer** (`content/*.ts`) — all copy lives here as typed constants. Sections import directly from these files; never hardcode strings inside components.
+**Content layer** (`content/*.ts`) — all copy lives here as typed constants. Section headings, CTAs and labels live in `content/sections.ts`. Sections import directly from these files; never hardcode strings inside components.
 
-**Section components** (`components/sections/`) — one file per page section, rendered top-to-bottom in `app/page.tsx`: Hero → Services → WhyUs → Process → TechStack → CtaBanner → Faq → Contact.
+**Section components** (`components/sections/`) — one file per page section, rendered top-to-bottom in `app/page.tsx`: Hero → Services → WhyUs → Process → Founder → TechStack → CtaBanner → Faq → Contact.
 
-**Layout components** (`components/layout/`) — `Header`, `Footer`, `WhatsAppFab`, `Container` (width wrapper), `Section` (vertical padding + id anchor).
+**Layout components** (`components/layout/`) — `Header`, `Footer`, `WhatsAppFab`, `Container` (width wrapper), `Section` (vertical padding + id anchor, `alt` for gray background) and `SectionHeading` (eyebrow + title + description).
+
+**Brand** (`components/brand/logo.tsx`) — `Logo` / `LogoMark` (SC monogram, `tone="dark" | "light"`). Static versions in `public/brand/`, favicon in `app/icon.svg`, social image in `public/og-image.png` (generated from `public/og-image.svg`).
 
 **Motion** (`components/motion/fade-in.tsx`) — thin Framer Motion wrapper used across sections for scroll-triggered entrance animations.
 
@@ -41,7 +43,7 @@ Single-page marketing/lead-capture site built with Next.js 15 App Router.
 
 ## Styling
 
-Tailwind v4 (PostCSS plugin). Global styles and CSS variables (design tokens) are in `app/globals.css`. The `cn()` utility from `lib/utils.ts` merges class names (`clsx` + `tailwind-merge`).
+Tailwind v4 (PostCSS plugin). Global styles and CSS variables (design tokens) are in `app/globals.css`. Visual direction is sober/corporate: Inter only, navy `--brand-ink` + blue `--brand-primary`, white/`--brand-surface-alt` backgrounds, `rounded-md`/`rounded-lg`. Use `.eyebrow` for section labels and `.display` for headings. The `cn()` utility from `lib/utils.ts` merges class names (`clsx` + `tailwind-merge`).
 
 ## Content edits
 

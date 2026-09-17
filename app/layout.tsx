@@ -1,25 +1,10 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Geist, JetBrains_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import { cn } from "@/lib/utils";
 
-const instrumentSerif = Instrument_Serif({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-display",
-  weight: "400",
-  style: ["normal", "italic"],
-  display: "swap",
-});
-
-const geist = Geist({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -35,7 +20,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_BR",
     siteName: "Sys Connect",
-    images: ["/og-image.svg"],
+    images: ["/og-image.png"],
   },
   twitter: { card: "summary_large_image" },
 };
@@ -53,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="pt-BR"
-      className={cn(instrumentSerif.variable, geist.variable, jetbrainsMono.variable)}
+      className={inter.variable}
     >
       <body>
         <script

@@ -1,46 +1,26 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { Container } from "@/components/layout/container";
+import { sections } from "@/content/sections";
 
 export function CtaBanner() {
-  return (
-    <section className="relative overflow-hidden bg-[var(--brand-ink)] py-28 text-[var(--brand-paper)] md:py-36">
-      <div aria-hidden className="pointer-events-none absolute inset-0 grid-lines opacity-60" />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(50% 60% at 20% 50%, rgba(43,108,255,0.18), transparent 60%), radial-gradient(40% 40% at 90% 30%, rgba(255,212,71,0.08), transparent 70%)",
-        }}
-      />
+  const copy = sections.cta;
 
-      <div className="relative mx-auto w-full max-w-[1240px] px-6 md:px-10">
-        <div className="grid items-end gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-8">
-            <div className="mono text-[11px] uppercase tracking-[0.22em] text-[var(--brand-muted-on-dark)]">
-              §04 · Próximo passo
-            </div>
-            <h2 className="display mt-5 text-5xl leading-[1] md:text-7xl lg:text-[88px]">
-              Vamos <span className="display-italic text-[var(--brand-spark)]">construir</span>
-              <br />
-              alguma coisa boa.
-            </h2>
-          </div>
-          <div className="lg:col-span-4">
-            <p className="max-w-sm text-[15px] leading-relaxed text-[var(--brand-muted-on-dark)]">
-              Conte seu desafio. Voltamos em até 1 dia útil com os próximos passos e uma conversa
-              inicial sem compromisso.
-            </p>
-            <Link
-              href="#contato"
-              className="group mt-8 inline-flex items-center gap-2 rounded-full bg-[var(--brand-paper)] px-6 py-3.5 text-sm font-medium text-[var(--brand-ink)] transition hover:bg-[var(--brand-spark)]"
-            >
-              Agendar reunião
-              <ArrowUpRight size={16} className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </Link>
-          </div>
+  return (
+    <section className="bg-[var(--brand-ink)] text-white">
+      <Container className="flex flex-col items-start justify-between gap-8 py-16 md:flex-row md:items-center md:py-20">
+        <div className="max-w-2xl">
+          <h2 className="display text-3xl md:text-4xl">{copy.title}</h2>
+          <p className="mt-4 leading-relaxed text-[var(--brand-muted-on-dark)]">{copy.description}</p>
         </div>
-      </div>
+        <Link
+          href={copy.button.href}
+          className="inline-flex shrink-0 items-center gap-2 rounded-md bg-white px-6 py-3.5 text-sm font-semibold text-[var(--brand-ink)] transition-colors hover:bg-[var(--brand-primary-soft)]"
+        >
+          {copy.button.label}
+          <ArrowRight size={16} aria-hidden />
+        </Link>
+      </Container>
     </section>
   );
 }
