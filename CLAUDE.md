@@ -33,7 +33,7 @@ Single-page marketing/lead-capture site built with Next.js 15 App Router.
 
 **Layout components** (`components/layout/`) — `Header`, `Footer`, `WhatsAppFab`, `Container` (width wrapper), `Section` (vertical padding + id anchor, `alt` for gray background) and `SectionHeading` (eyebrow + title + description).
 
-**Brand** (`components/brand/logo.tsx`) — `Logo` / `LogoMark` (SC monogram, `tone="dark" | "light"`). Static versions in `public/brand/`, favicon in `app/icon.svg`, social image in `public/og-image.png` (generated from `public/og-image.svg`).
+**Brand** (`components/brand/logo.tsx`) — `Logo` / `LogoMark` (marca oficial SysConnect, `public/brand/sysconnect-mark.png`; `tone="dark" | "light"` muda só a cor do texto). Fonte original em `public/brand/logo.png`; lockups em `public/brand/sysconnect-logo*.png`. Ícones em `app/favicon.ico`, `app/icon.png`, `app/apple-icon.png`. Imagem social em `public/og-image.png` (gerada a partir de `public/og-image.svg`).
 
 **Motion** (`components/motion/fade-in.tsx`) — thin Framer Motion wrapper used across sections for scroll-triggered entrance animations.
 

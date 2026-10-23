@@ -4,9 +4,9 @@ export const site = {
   description:
     "Construímos sistemas, apps e integrações para empresas que não podem parar.",
   email: "admin@sysconnectcompany.com.br",
-  phone: "+55 (32) 99862-2043",
+  phone: "+55 (32) 99991-3730",
   cnpj: "65.951.698/0001-76",
-  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "5532998622043",
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "5532999913730",
   social: {
     linkedin: "https://www.linkedin.com/company/sys-connect-company",
     instagram: "https://instagram.com/sysconnectcompany",

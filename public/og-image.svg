@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <rect width="1200" height="630" fill="#0B1F3A"/>
-  <g transform="translate(96 96) scale(2)"><rect width="40" height="40" rx="8" fill="#FFFFFF"/><g stroke="#0B1F3A" stroke-width="2.6" stroke-linecap="round" fill="none"><path d="M17.6 15.5A4.3 4.3 0 1 0 13.3 19.8A4.3 4.3 0 1 1 9 24.1"/><path d="M31.6 15.4A7 7 0 1 0 31.6 24.6"/></g><path d="M13.3 19.8H20" stroke="#1D4ED8" stroke-width="2.6" stroke-linecap="round"/><circle cx="31.6" cy="24.6" r="2.4" fill="#1D4ED8"/></g>
+  <rect x="96" y="96" width="80" height="80" rx="16" fill="#FFFFFF"/>
+  <image href="/brand/sysconnect-mark.png" x="104" y="104" width="64" height="64"/>
   <text x="200" y="152" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="44" letter-spacing="-0.9" fill="#FFFFFF"><tspan font-weight="700">Sys</tspan><tspan font-weight="500">Connect</tspan></text>
   <text x="96" y="340" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="56" font-weight="600" letter-spacing="-1.1" fill="#FFFFFF">Software sob medida para operações</text>
   <text x="96" y="420" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="56" font-weight="600" letter-spacing="-1.1" fill="#FFFFFF">que não podem parar.</text>
