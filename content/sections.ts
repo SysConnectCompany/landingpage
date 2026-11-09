@@ -101,4 +101,12 @@ export const sections = {
   whatsapp: {
     label: "Falar no WhatsApp",
   },
+  cookies: {
+    title: "Sua privacidade",
+    description:
+      "Usamos cookies do Google Analytics para entender como o site é utilizado e melhorar sua experiência. Eles só são ativados com o seu consentimento, conforme a LGPD.",
+    accept: "Aceitar",
+    reject: "Recusar",
+    preferences: "Preferências de cookies",
+  },
 } as const;

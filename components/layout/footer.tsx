@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Logo } from "@/components/brand/logo";
 import { Container } from "./container";
+import { CookiePreferencesButton } from "./cookie-consent";
 import { site } from "@/content/site";
 import { sections } from "@/content/sections";
 
@@ -63,8 +64,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 border-t border-[var(--brand-border-dark)] pt-6 text-xs text-[var(--brand-muted-on-dark)]">
-          © {year} {site.name}. {copy.rights}
+        <div className="mt-14 flex flex-col gap-3 border-t border-[var(--brand-border-dark)] pt-6 text-xs text-[var(--brand-muted-on-dark)] sm:flex-row sm:items-center sm:justify-between">
+          <span>
+            © {year} {site.name}. {copy.rights}
+          </span>
+          <CookiePreferencesButton className="text-left transition-colors hover:text-white" />
         </div>
       </Container>
     </footer>
