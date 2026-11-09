@@ -8,8 +8,8 @@ export const site = {
   cnpj: "65.951.698/0001-76",
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "5532999913730",
   social: {
-    linkedin: "https://www.linkedin.com/company/sys-connect-company",
-    instagram: "https://instagram.com/sysconnectcompany",
+    linkedin: "",
+    instagram: "https://instagram.com/sysconnect.company",
   },
   founder: {
     name: "Julio Castro",
