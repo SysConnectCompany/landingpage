@@ -45,12 +45,16 @@ export function Footer() {
               </li>
               <li className="text-[var(--brand-muted-on-dark)]">{site.phone}</li>
               <li className="flex gap-5">
-                <a href={site.social.linkedin} target="_blank" rel="noopener noreferrer" className={linkClass}>
-                  LinkedIn
-                </a>
-                <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" className={linkClass}>
-                  Instagram
-                </a>
+                {site.social.linkedin && (
+                  <a href={site.social.linkedin} target="_blank" rel="noopener noreferrer" className={linkClass}>
+                    LinkedIn
+                  </a>
+                )}
+                {site.social.instagram && (
+                  <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" className={linkClass}>
+                    Instagram
+                  </a>
+                )}
               </li>
             </ul>
           </div>
