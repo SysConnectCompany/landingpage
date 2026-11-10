@@ -1,5 +1,13 @@
 export const site = {
   name: "Sys Connect",
+  legalName: "Sys Connect Company",
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sysconnectcompany.com.br").replace(/\/$/, ""),
+  seo: {
+    title: "Sys Connect | Desenvolvimento de Software Sob Medida e Aplicativos",
+    description:
+      "Empresa de desenvolvimento de software sob medida: sistemas web, aplicativos mobile, integrações de API e squads dedicados para empresas de todo o Brasil.",
+    ogImageAlt: "Sys Connect — Desenvolvimento de software sob medida",
+  },
   tagline: "Desenvolvimento de software sob medida.",
   description:
     "Construímos sistemas, apps e integrações para empresas que não podem parar.",

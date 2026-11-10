@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { CookieConsent } from "@/components/layout/cookie-consent";
+import { site } from "@/content/site";
+import { buildStructuredData, jsonLdScript } from "@/lib/structured-data";
 import "./globals.css";
 
 const inter = Inter({
@@ -10,32 +12,33 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  metadataBase: new URL(site.url),
   title: {
-    default: "Sys Connect — Desenvolvimento de Software sob medida",
-    template: "%s | Sys Connect",
+    default: site.seo.title,
+    template: `%s | ${site.name}`,
   },
-  description:
-    "Desenvolvimento de software sob medida, aplicativos mobile, integrações e squads dedicados para empresas que buscam tecnologia de ponta.",
+  description: site.seo.description,
+  applicationName: site.name,
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    siteName: "Sys Connect",
+    url: "/",
+    siteName: site.name,
+    title: site.seo.title,
+    description: site.seo.description,
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: site.seo.ogImageAlt }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: site.seo.title,
+    description: site.seo.description,
     images: ["/og-image.png"],
   },
-  twitter: { card: "summary_large_image" },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const orgJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Sys Connect",
-    url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
-    description:
-      "Desenvolvimento de software sob medida, aplicativos mobile, integrações e squads dedicados.",
-  };
-
   return (
     <html
       lang="pt-BR"
@@ -45,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body suppressHydrationWarning>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: jsonLdScript(buildStructuredData()) }}
         />
         {children}
         <CookieConsent gaId={process.env.NEXT_PUBLIC_GA_ID} />
