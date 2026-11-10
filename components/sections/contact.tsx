@@ -9,6 +9,7 @@ import { contactSchema, projectTypes, type ContactInput } from "@/lib/validators
 import { site } from "@/content/site";
 import { sections } from "@/content/sections";
 import { cn } from "@/lib/utils";
+import { formatPhone } from "@/lib/phone";
 import { sendGAEvent } from "@next/third-parties/google";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -36,6 +37,7 @@ export function Contact() {
   });
 
   const consent = watch("consent");
+  const phoneField = register("phone");
 
   const onSubmit = async (data: ContactInput) => {
     setStatus("submitting");
@@ -120,8 +122,20 @@ export function Contact() {
                     <Field label="Empresa">
                       <input className={inputClass} placeholder="Nome da empresa" {...register("company")} />
                     </Field>
-                    <Field label="Telefone">
-                      <input className={inputClass} placeholder="(00) 00000-0000" {...register("phone")} />
+                    <Field label="Telefone" error={errors.phone?.message}>
+                      <input
+                        className={inputClass}
+                        placeholder="(00) 00000-0000"
+                        type="tel"
+                        inputMode="numeric"
+                        autoComplete="tel-national"
+                        maxLength={15}
+                        {...phoneField}
+                        onChange={(e) => {
+                          e.target.value = formatPhone(e.target.value);
+                          phoneField.onChange(e);
+                        }}
+                      />
                     </Field>
                   </div>
 
