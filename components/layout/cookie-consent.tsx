@@ -5,15 +5,15 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/container";
 import { sections } from "@/content/sections";
+import { ANALYTICS_CONSENT_KEY } from "@/lib/analytics";
 
 type Consent = "granted" | "denied";
 
-const STORAGE_KEY = "sysconnect-cookie-consent";
 const OPEN_EVENT = "sysconnect:open-cookie-preferences";
 
 function readConsent(): Consent | null {
   try {
-    const value = window.localStorage.getItem(STORAGE_KEY);
+    const value = window.localStorage.getItem(ANALYTICS_CONSENT_KEY);
     return value === "granted" || value === "denied" ? value : null;
   } catch {
     return null;
@@ -22,7 +22,7 @@ function readConsent(): Consent | null {
 
 function writeConsent(value: Consent) {
   try {
-    window.localStorage.setItem(STORAGE_KEY, value);
+    window.localStorage.setItem(ANALYTICS_CONSENT_KEY, value);
   } catch {
     // storage indisponível (modo privado, bloqueio): vale só para a sessão
   }

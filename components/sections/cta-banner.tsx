@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/layout/container";
+import { TrackedLink } from "@/components/analytics/tracked-link";
 import { sections } from "@/content/sections";
 
 export function CtaBanner() {
@@ -13,13 +13,15 @@ export function CtaBanner() {
           <h2 className="display text-3xl md:text-4xl">{copy.title}</h2>
           <p className="mt-4 leading-relaxed text-[var(--brand-muted-on-dark)]">{copy.description}</p>
         </div>
-        <Link
+        <TrackedLink
           href={copy.button.href}
+          eventName="click_cta_contato"
+          placement="cta_banner"
           className="inline-flex shrink-0 items-center gap-2 rounded-md bg-white px-6 py-3.5 text-sm font-semibold text-[var(--brand-ink)] transition-colors hover:bg-[var(--brand-primary-soft)]"
         >
           {copy.button.label}
           <ArrowRight size={16} aria-hidden />
-        </Link>
+        </TrackedLink>
       </Container>
     </section>
   );

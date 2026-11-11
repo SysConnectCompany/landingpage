@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { site } from "@/content/site";
 import { sections } from "@/content/sections";
+import { TrackedLink } from "@/components/analytics/tracked-link";
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -13,8 +13,10 @@ function WhatsAppIcon({ className }: { className?: string }) {
 export function WhatsAppFab() {
   const href = `https://wa.me/${site.whatsapp}`;
   return (
-    <Link
+    <TrackedLink
       href={href}
+      eventName="click_whatsapp"
+      placement="floating_button"
       target="_blank"
       rel="noopener noreferrer"
       aria-label={sections.whatsapp.label}
@@ -22,6 +24,6 @@ export function WhatsAppFab() {
       className="fixed bottom-5 right-5 z-40 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-105"
     >
       <WhatsAppIcon className="h-7 w-7" />
-    </Link>
+    </TrackedLink>
   );
 }

@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { sections } from "@/content/sections";
 import { techStack } from "@/content/stack";
+import { TrackedLink } from "@/components/analytics/tracked-link";
 
 export function Hero() {
   const hero = sections.hero;
@@ -19,13 +20,15 @@ export function Hero() {
             </p>
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <Link
+              <TrackedLink
                 href={hero.primaryCta.href}
+                eventName="click_cta_contato"
+                placement="hero"
                 className="inline-flex items-center justify-center gap-2 rounded-md bg-[var(--brand-primary)] px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--brand-primary-hover)]"
               >
                 {hero.primaryCta.label}
                 <ArrowRight size={16} aria-hidden />
-              </Link>
+              </TrackedLink>
               <Link
                 href={hero.secondaryCta.href}
                 className="inline-flex items-center justify-center rounded-md border border-white/25 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"

@@ -7,6 +7,8 @@ import { Logo } from "@/components/brand/logo";
 import { site } from "@/content/site";
 import { sections } from "@/content/sections";
 import { cn } from "@/lib/utils";
+import { TrackedLink } from "@/components/analytics/tracked-link";
+import { trackEvent } from "@/lib/analytics";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -41,6 +43,9 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
+              onClick={() => {
+                if (item.href === "#contato") trackEvent("click_cta_contato", { placement: "header_nav" });
+              }}
               className={cn(
                 "text-sm font-medium transition-colors",
                 solid
@@ -53,12 +58,14 @@ export function Header() {
           ))}
         </nav>
 
-        <Link
+        <TrackedLink
           href={cta.href}
+          eventName="click_cta_contato"
+          placement="header_button"
           className="hidden rounded-md bg-[var(--brand-primary)] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--brand-primary-hover)] md:inline-flex"
         >
           {cta.label}
-        </Link>
+        </TrackedLink>
 
         <button
           type="button"
@@ -78,19 +85,24 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  if (item.href === "#contato") trackEvent("click_cta_contato", { placement: "mobile_nav" });
+                  setOpen(false);
+                }}
                 className="border-b border-[var(--brand-border)] py-3 text-base font-medium text-[var(--brand-ink)] last:border-0"
               >
                 {item.label}
               </Link>
             ))}
-            <Link
+            <TrackedLink
               href={cta.href}
+              eventName="click_cta_contato"
+              placement="mobile_button"
               onClick={() => setOpen(false)}
               className="mt-4 inline-flex justify-center rounded-md bg-[var(--brand-primary)] px-4 py-3 text-sm font-semibold text-white"
             >
               {cta.label}
-            </Link>
+            </TrackedLink>
           </Container>
         </div>
       )}

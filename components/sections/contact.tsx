@@ -10,7 +10,7 @@ import { site } from "@/content/site";
 import { sections } from "@/content/sections";
 import { cn } from "@/lib/utils";
 import { formatPhone } from "@/lib/phone";
-import { sendGAEvent } from "@next/third-parties/google";
+import { trackEvent } from "@/lib/analytics";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -53,7 +53,7 @@ export function Contact() {
         throw new Error(body.error || "Erro ao enviar");
       }
       setStatus("success");
-      sendGAEvent("event", "generate_lead", { form: "contato" });
+      trackEvent("generate_lead", { form: "contato" });
       reset();
     } catch (err) {
       setStatus("error");

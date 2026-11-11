@@ -32,6 +32,18 @@ npm run start
 
 Todo o copy vive em `content/*.ts`. Ajuste os arquivos para editar serviços, FAQ, processo, etc.
 
+## Medição de contatos (GA4)
+
+Com `NEXT_PUBLIC_GA_ID` configurado, o site envia estes eventos após o visitante aceitar os cookies de analytics:
+
+| Evento | Quando ocorre |
+| --- | --- |
+| `click_cta_contato` | Clique em um link de contato no cabeçalho, destaque, banner ou rodapé |
+| `click_whatsapp` | Clique no botão flutuante do WhatsApp |
+| `generate_lead` | Formulário enviado com sucesso |
+
+Os eventos de clique incluem o parâmetro `placement` para identificar a posição do link. No GA4, crie uma dimensão personalizada de escopo **Evento** com o parâmetro `placement` se quiser comparar essas posições em relatórios ou Explorações. Valide os eventos em **Relatórios → Tempo real** após aceitar os cookies. Um clique no WhatsApp indica intenção de contato, não confirma que a conversa começou; mantenha `generate_lead` separado dos cliques ao avaliar conversões.
+
 ### Seção do fundador
 
 - O perfil padrão é `https://www.linkedin.com/in/juliocastro-eng/`, definido em `content/site.ts`. Use `NEXT_PUBLIC_FOUNDER_LINKEDIN_URL` em `.env.local` para sobrescrevê-lo.

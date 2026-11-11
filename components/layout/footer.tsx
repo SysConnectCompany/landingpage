@@ -4,6 +4,7 @@ import { Container } from "./container";
 import { CookiePreferencesButton } from "./cookie-consent";
 import { site } from "@/content/site";
 import { sections } from "@/content/sections";
+import { TrackedLink } from "@/components/analytics/tracked-link";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -27,9 +28,15 @@ export function Footer() {
             <ul className="mt-4 space-y-3 text-sm">
               {site.nav.map((n) => (
                 <li key={n.href}>
-                  <Link href={n.href} className={linkClass}>
-                    {n.label}
-                  </Link>
+                  {n.href === "#contato" ? (
+                    <TrackedLink href={n.href} eventName="click_cta_contato" placement="footer_nav" className={linkClass}>
+                      {n.label}
+                    </TrackedLink>
+                  ) : (
+                    <Link href={n.href} className={linkClass}>
+                      {n.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
